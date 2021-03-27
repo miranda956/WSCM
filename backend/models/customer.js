@@ -1,7 +1,7 @@
 
 
 module.exports=(sequelize,DataTypes)=>{
-    const   User=sequelize.define("User",{
+    const   Customer=sequelize.define("Customer",{
         f_name:{
             type:DataTypes.STRING,
             allowNull:false,
@@ -28,9 +28,8 @@ module.exports=(sequelize,DataTypes)=>{
                 type:DataTypes.STRING,
                 allowNull:false,
                 required:true
-            }
-
-
+            },
+        
         },
     
         pwd:{
@@ -60,7 +59,7 @@ module.exports=(sequelize,DataTypes)=>{
 
 
     );
-    return User;
+    return Customer;
 
 
 }
