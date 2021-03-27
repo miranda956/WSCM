@@ -1,3 +1,4 @@
+const { BOOLEAN } = require("sequelize/types");
 
 
 module.exports=(sequelize,DataTypes)=>{
@@ -17,6 +18,24 @@ module.exports=(sequelize,DataTypes)=>{
             allowNull:false,
             required:true
         },
+        Date_Recieved:{
+            type:DataTypes.DATE,
+            allowNull:false,
+            required:true
+        },
+        Date_sold:{
+            type:DataTypes.DATE,
+            allowNull:false,
+            required:true
+        },
+        availabilty:{
+            type:DataTypes.BOOLEAN,
+            allowNull:false,
+            required:true,
+            
+
+        }
+        
     },
 
     {

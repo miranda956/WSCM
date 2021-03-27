@@ -35,11 +35,17 @@ module.exports=(sequelize,DataTypes)=>{
 
     grandTotal:{
         type:DataTypes.STRING,
+        
         allowNull:false,
         required:true
     },
     shipping:{
         type:DataTypes.STRING,
+        allowNull:false,
+        required:true
+    },
+    quantity:{
+        type:DataTypes.INTEGER,
         allowNull:false,
         required:true
     }
