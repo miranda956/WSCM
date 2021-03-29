@@ -62,6 +62,11 @@ module.exports=(sequelize,DataTypes)=>{
             foreignkey:{
                 allowNull:false
             }
+        });
+        Order.hasMany(models.Products,{
+            foreignkey:{
+                allowNull:false
+            }
         })
     }
     return Order;

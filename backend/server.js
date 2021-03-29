@@ -56,7 +56,6 @@ app.use(express.static("public"));
 //require("./controllers/client")(app)
 //require("./controllers/owner")(app)
 //require("./controllers/property")(app)
-app.set("view engine","handlebars");
 db.sequelize.sync({force:false}).then(()=>{
    const port = process.env.PORT || 4500;
    app.listen(port,()=> 
