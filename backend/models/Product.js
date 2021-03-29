@@ -1,7 +1,7 @@
 
 
 module.exports=(sequelize,DataTypes)=>{
-    const Product=sequelize.define("Product",{
+    const Products=sequelize.define("Products",{
         Title:{
             type:DataTypes.STRING,
             allowNull:false,
@@ -32,7 +32,6 @@ module.exports=(sequelize,DataTypes)=>{
             allowNull:false,
             required:true,
             
-
         }
         
     },
@@ -43,7 +42,11 @@ module.exports=(sequelize,DataTypes)=>{
     },
 
     );
-    return Product;
-
+    Products.associate=(models)=>{
+        Products.belongsToMany(models.Supplier,{
+            through:'Supplying'
+        })
+    }
+    return Products;
 
 }

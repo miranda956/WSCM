@@ -59,6 +59,13 @@ module.exports=(sequelize,DataTypes)=>{
 
 
     );
+    Supplier.associate=(models)=>{
+        Supplier.belongsToMany(models.Products,{
+            through:'Supplying'
+        })
+    }
+
+    
     return Supplier;
 
 
