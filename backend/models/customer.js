@@ -59,6 +59,13 @@ module.exports=(sequelize,DataTypes)=>{
 
 
     );
+    Customer.associate=(models)=>{
+        Customer.hasMany(models.Order,{
+            foreignkey:{
+                allowNull:false
+            }
+        })
+    }
     return Customer;
 
 

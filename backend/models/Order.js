@@ -57,6 +57,13 @@ module.exports=(sequelize,DataTypes)=>{
     },
 
     );
+    Order.associate=(models)=>{
+        Order.belongsTo(models.Customer,{
+            foreignkey:{
+                allowNull:false
+            }
+        })
+    }
     return Order;
 
 

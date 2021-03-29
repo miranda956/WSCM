@@ -1,4 +1,3 @@
-const { BOOLEAN } = require("sequelize/types");
 
 
 module.exports=(sequelize,DataTypes)=>{
