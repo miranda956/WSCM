@@ -16,13 +16,10 @@ module.exports=(sequelize,DataTypes)=>{
     },
 
     );
-    Stock.associate=(models)=>{
-        Stock.hasMany(models.Products,{
-            foreignkey:{
-                allowNull:false
-            }
-        })
-    }
+     
+    
     return Stock;
 
 }
+
+

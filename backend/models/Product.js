@@ -45,6 +45,11 @@ module.exports=(sequelize,DataTypes)=>{
     Products.associate=(models)=>{
         Products.belongsToMany(models.Supplier,{
             through:'Supplying'
+        });
+        Products.belongsTo(models.Stock,{
+           foreignkey:{
+               allowNull:false
+           } 
         })
     }
     return Products;
