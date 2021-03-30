@@ -16,10 +16,16 @@ module.exports=(sequelize,DataTypes)=>{
     },
 
     );
-     
+    Stock.associate=(models)=>{
+        Stock.belongsTo(models.Products,{
+            foreignkey:{
+                allowNull:false
+            }
+        })
+    }
+    
     
     return Stock;
-
+  
 }
-
 

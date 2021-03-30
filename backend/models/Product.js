@@ -18,7 +18,7 @@ module.exports=(sequelize,DataTypes)=>{
             required:true
         },
         Date_Recieved:{
-            type:DataTypes.DATE,
+            type:DataTypes.DATE,  
             allowNull:false,
             required:true
         },
@@ -46,12 +46,8 @@ module.exports=(sequelize,DataTypes)=>{
         Products.belongsToMany(models.Supplier,{
             through:'Supplying'
         });
-        Products.belongsTo(models.Stock,{
-           foreignkey:{
-               allowNull:false
-           } 
-        })
+        
     }
     return Products;
 
-}
+} 
