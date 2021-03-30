@@ -53,9 +53,11 @@ app.use(expresswinston.errorLogger({
 }));
 app.use(express.static("public"));
 require("./controllers/staff")(app);
-//require("./controllers/client")(app)
-//require("./controllers/owner")(app)
-//require("./controllers/property")(app)
+require("./controllers/Order")(app)
+require("./controllers/stock")(app)
+require("./controllers/supplier")(app)
+require("./controllers/customer")(app)
+
 db.sequelize.sync({force:false}).then(()=>{
    const port = process.env.PORT || 4500;
    app.listen(port,()=> 

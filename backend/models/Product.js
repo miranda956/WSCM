@@ -2,6 +2,17 @@
 
 module.exports=(sequelize,DataTypes)=>{
     const Products=sequelize.define("Products",{
+        name:{
+            type:DataTypes.STRING,
+            allowNull:false,
+            required:true
+        },
+        barcode:{
+            type:DataTypes.STRING,
+            allowNull:false,
+            required:true
+        },
+
         Title:{
             type:DataTypes.STRING,
             allowNull:false,
@@ -32,6 +43,17 @@ module.exports=(sequelize,DataTypes)=>{
             allowNull:false,
             required:true,
             
+        },
+        purchasePrice:{
+            type:DataTypes.DECIMAL,
+            allowNull:false,
+            required:true
+
+        },
+        sellPrice:{
+            type:DataTypes.DECIMAL,
+            allowNull:false,
+            required:true
         }
         
     },
