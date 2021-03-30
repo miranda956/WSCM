@@ -45,13 +45,13 @@ module.exports=(sequelize,DataTypes)=>{
             
         },
         purchasePrice:{
-            type:DataTypes.DECIMAL,
+            type:DataTypes.DECIMAL(10,2),
             allowNull:false,
             required:true
 
         },
         sellPrice:{
-            type:DataTypes.DECIMAL,
+            type:DataTypes.DECIMAL(10,2),
             allowNull:false,
             required:true
         }
