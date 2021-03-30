@@ -52,7 +52,7 @@ app.use(expresswinston.errorLogger({
     ]
 }));
 app.use(express.static("public"));
-//require("./controllers/admin")(app);
+require("./controllers/staff")(app);
 //require("./controllers/client")(app)
 //require("./controllers/owner")(app)
 //require("./controllers/property")(app)
