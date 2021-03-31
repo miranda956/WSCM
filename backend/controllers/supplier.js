@@ -1,5 +1,4 @@
 const express=require("express");
-const { noExtendLeft } = require("sequelize/types/lib/operators");
 
 
 
@@ -15,6 +14,7 @@ function router(app){
           next(err)
       })
     });
+
     app.post("/api/supplier", (req, res, next) => {
       db.Supplier.create({
           f_name:req.body.f_name,
@@ -58,8 +58,10 @@ function router(app){
       }).then((profile)=>{
 
       }).catch((err)=>{
-          next(err)
+      next(err)
       })
     });
+
+    // supplier products 
 }
 module.exports=router;
