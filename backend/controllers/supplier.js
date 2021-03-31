@@ -1,4 +1,5 @@
 const express=require("express");
+const { noExtendLeft } = require("sequelize/types/lib/operators");
 
 
 
@@ -46,5 +47,19 @@ function router(app){
             next(err)
         })
     })
+    app.get("/api/supplier/profile/{id}", (req, res,next ) => {
+        
+      db.Supplier.findOne({
+
+      },{
+          where:{
+              id:req.user.id
+          }
+      }).then((profile)=>{
+
+      }).catch((err)=>{
+          next(err)
+      })
+    });
 }
 module.exports=router;
