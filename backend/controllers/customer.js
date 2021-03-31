@@ -26,7 +26,7 @@ function router(app){
       
     });
 
-    app.patch("",(req,res,next)=>{
+    app.patch("api/customer/{id}",(req,res,next)=>{
         db.Customers.update({
             f_name:req.body.f_name,
             l_name:req.body.l_name,
@@ -44,5 +44,30 @@ function router(app){
             next(err)
         })
     })
+
+    app.get("/api/customers-list", (req, res,next) => {
+        db.Customers.findAll({
+        }).then((data)=>{
+            res.json(data)
+
+        }).catch((err)=>{
+            next(err)
+        })
+      
+    });
+
+    app.get("/api/customer/{id}", (req, res,next) => {
+        db.Customers.findOne({
+        },
+        {
+            where:{
+                id:req.params.id
+            }
+        })
+      
+    });
+    // customers and ordered products 
+
+    
 }
 module.exports=router;
