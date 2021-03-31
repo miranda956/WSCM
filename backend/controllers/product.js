@@ -15,5 +15,18 @@ function router(app){
         })
       
     });
+    
+    app.get("/api/product-info{id}", (req, res,next) => {
+        db.Products.findAll({
+            where:{
+                id:req.params.id
+            }
+        }).then((productinfo)=>{
+            res.json(productinfo)
+        }).catch((err)=>{
+            next(err)
+        })
+      
+    });
 }
 module.exports=router;

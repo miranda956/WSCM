@@ -80,6 +80,7 @@ db.Orders.findAll({
     
 app.get("/api/customer-order/{id}",(req,res,next)=>{
     db.Orders.findAll({
+        // to be fixed properly 
         include:[db.Customers],
         where:{
             id:req.user.id
