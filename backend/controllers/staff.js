@@ -11,7 +11,7 @@ app.post("/api/staff",(req,res,next)=>{
        l_name:req.body.l_name,
        email:req.body.email,
        contact:req.body.contact,
-       address:req.body.addresse,
+       address:req.body.address,
        position:req.body.position,
        pwd:req.body.pwd,
 
@@ -30,7 +30,7 @@ app.patch("/api/staff/{id}",(req,res,next)=>{
        l_name:req.body.l_name,
        email:req.body.email,
        contact:req.body.contact,
-       address:req.body.addresse,
+       address:req.body.address,
        position:req.body.position,
        
     },{
