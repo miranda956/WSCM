@@ -66,13 +66,29 @@ function router(app){
         })
       
     });
-app.get("/api/customers/orders/products", (req, res,next) => {
-      // customers and ordered products 
 
+app.get("/api/customers/orders/products", (req, res,next) => {
+db.Orders.findAll({
+    include:[db.customers]
+}).then((data)=>{
+    res.json(data)
+}).catch((err)=>{
+    next(err)
+})
 });
+
     
 app.get("/api/customer-order/{id}",(req,res,next)=>{
-    // single customer order data 
+    db.Orders.findAll({
+        include:[db.Customers],
+        where:{
+            id:req.user.id
+        }
+    }).then(()=>[
+
+    ]).catch((err)=>{
+        next(err)
+    })
 })
 }
 module.exports=router;
