@@ -15,6 +15,7 @@ function router(app){
         })
       
     });
+
     
     app.get("/api/product-info{id}", (req, res,next) => {
         db.Products.findAll({
