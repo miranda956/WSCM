@@ -66,8 +66,13 @@ function router(app){
         })
       
     });
-    // customers and ordered products 
+app.get("/api/customers/orders/products", (req, res,next) => {
+      // customers and ordered products 
 
+});
     
+app.get("/api/customer-order/{id}",(req,res,next)=>{
+    // single customer order data 
+})
 }
 module.exports=router;
