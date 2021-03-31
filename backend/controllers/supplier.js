@@ -12,8 +12,8 @@ function router(app){
         res.json(data)
       }).catch((err)=>{
           next(err)
-      })
-    });
+      }) 
+    });   
 
     app.post("/api/supplier", (req, res, next) => {
       db.Supplier.create({
@@ -22,7 +22,7 @@ function router(app){
           email:req.body.email,
           contact:req.body.contact,
           address:req.body.address,
-          pwd:req.body.pwd
+          pwd:req.body.pwd   
 
       }).then((data)=>{
          res.json(data)
