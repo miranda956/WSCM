@@ -78,7 +78,7 @@ function router(app){
             next(err)
         })
     })
-    app.get("api/v1/search/keyword",(req,res,next)=>{
+    app.get("api/v1/product?search/keyword",(req,res,next)=>{
         db.Products.findAll({
             where:{
                 $or:{

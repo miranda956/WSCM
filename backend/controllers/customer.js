@@ -7,7 +7,7 @@ function router(app){
 
     // customer account 
 
-    app.post("/api/customer", (req, res,next) => {
+    app.post("/api/v1/customer", (req, res,next) => {
         db.Customers.create({
             f_name:req.body.f_name,
             l_name:req.body.l_name,
@@ -26,7 +26,7 @@ function router(app){
       
     });
 
-    app.patch("api/customer/{id}",(req,res,next)=>{
+    app.patch("api/v1/customer/{id}",(req,res,next)=>{
         db.Customers.update({
             f_name:req.body.f_name,
             l_name:req.body.l_name,
@@ -45,7 +45,7 @@ function router(app){
         })
     })
 
-    app.get("/api/customers-list", (req, res,next) => {
+    app.get("/api/v1/customers-list", (req, res,next) => {
         db.Customers.findAll({
         }).then((data)=>{
             res.json(data)
@@ -56,7 +56,7 @@ function router(app){
       
     });
 
-    app.get("/api/customer/{id}", (req, res,next) => {
+    app.get("/api/v1/customer/{id}", (req, res,next) => {
         db.Customers.findOne({
         },
         {
@@ -67,7 +67,7 @@ function router(app){
       
     });
 
-app.get("/api/customers/orders/products", (req, res,next) => {
+app.get("/api/v1/customers/orders/products", (req, res,next) => {
 db.Orders.findAll({
     include:[db.customers]
 }).then((data)=>{
@@ -78,7 +78,7 @@ db.Orders.findAll({
 });
 
     
-app.get("/api/customer-order/{id}",(req,res,next)=>{
+app.get("/api/v1/customer-order/{id}",(req,res,next)=>{
     db.Orders.findAll({
         // to be fixed properly 
         include:[db.Customers],

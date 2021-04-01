@@ -62,6 +62,17 @@ function router(app){
       })
     });
 
+    app.get("/api/v1/supplier/products",(req,res,next)=>{
+        db.Supplying.findAll({
+            // suppliers and their products 
+            include:[db.Products,db.Supplier]
+        }).then((data)=>{
+            res.json(data)
+        }).catch((err)=>{
+            next(err)
+        })
+    })
+
     // supplier products 
 }
 module.exports=router;
