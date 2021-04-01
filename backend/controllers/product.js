@@ -29,5 +29,42 @@ function router(app){
         })
       
     });
+    app.post("/api/product", (req, res, next) => {
+      db.Products.create({
+          name:req.body.name,
+          barcode:req.body.barcode,
+          Title:req.body.Title,
+          summary:req.body.summary,
+          Type:req.body.Type,
+          Date_Recieved:req.body.Date_Recieved,
+          Date_sold:req.body.Date_sold,
+          availabilty:req.body.availabilty,
+          purchasePrice:req.body.purchasePrice,
+          sellPrice:req.body.sellPrice
+      }).then((data)=>{
+          res.json(data)
+      }).catch((err)=>{
+          next(err)
+      })
+    });
+
+    app.patch("/api/product/{id}",(req,res,next)=>{
+        db.Product.Update({
+          name:req.body.name,
+          barcode:req.body.barcode,
+          Title:req.body.Title,
+          summary:req.body.summary,
+          Type:req.body.Type,
+          Date_Recieved:req.body.Date_Recieved,
+          Date_sold:req.body.Date_sold,
+          availabilty:req.body.availabilty,
+          purchasePrice:req.body.purchasePrice,
+          sellPrice:req.body.sellPrice
+        }).then((data)=>{
+             res.json(data)
+        }).catch((err)=>{
+            next(err)
+        })
+    })
 }
 module.exports=router;
