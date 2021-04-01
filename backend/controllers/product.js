@@ -5,7 +5,7 @@ const express=require("express");
 const db=require("../models");
 function router(app){
 
-    app.get("/api/products-list", (req, res,next) => {
+    app.get("/api/v1/products-list", (req, res,next) => {
         db.Products.findAll({
 
         }).then((data)=>{
@@ -17,7 +17,7 @@ function router(app){
     });
 
     
-    app.get("/api/product-info{id}", (req, res,next) => {
+    app.get("/api/v1/product-info{id}", (req, res,next) => {
         db.Products.findAll({
             where:{
                 id:req.param.id
@@ -29,7 +29,7 @@ function router(app){
         })
       
     });
-    app.post("/api/product", (req, res, next) => {
+    app.post("/api/v1/product", (req, res, next) => {
       db.Products.create({
           name:req.body.name,
           barcode:req.body.barcode,
@@ -48,7 +48,7 @@ function router(app){
       })
     });
 
-    app.patch("/api/product/{id}",(req,res,next)=>{
+    app.patch("/api/v1/product/{id}",(req,res,next)=>{
         db.Product.Update({
           name:req.body.name,
           barcode:req.body.barcode,
@@ -67,7 +67,7 @@ function router(app){
         })
     })
 
-    app.delete("/api/product-destroy/{id}",(req,res,next)=>{
+    app.delete("/api/v1/product-destroy/{id}",(req,res,next)=>{
         db.Products.destroy({
             where:{
                 id:req.param.id
@@ -78,7 +78,7 @@ function router(app){
             next(err)
         })
     })
-    app.get("api/search/keyword",(req,res,next)=>{
+    app.get("api/v1/search/keyword",(req,res,next)=>{
         db.Products.findAll({
             where:{
                 $or:{
