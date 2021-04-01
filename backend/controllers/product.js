@@ -20,7 +20,7 @@ function router(app){
     app.get("/api/product-info{id}", (req, res,next) => {
         db.Products.findAll({
             where:{
-                id:req.params.id
+                id:req.param.id
             }
         }).then((productinfo)=>{
             res.json(productinfo)
@@ -78,5 +78,43 @@ function router(app){
             next(err)
         })
     })
+    app.get("api/search/keyword",(req,res,next)=>{
+        db.Products.findAll({
+            where:{
+                $or:{
+                    name: {
+                        $like: "%" + req.params.keyword + "%"
+                      },
+                      barcode:{
+                          $like:"%"+req.params.keyword +"%"
+                      },
+                      Title: {
+                        $like: "%" + req.params.keyword + "%"
+                      },
+                      summary: {
+                        $like: "%" + req.params.keyword + "%"
+                      },
+                      Type: {
+                        $like: "%" + req.params.keyword + "%"
+                      },
+                      purchasePrice: {
+                        $like: "%" + req.params.keyword + "%"
+                      },
+                      sellPrice: {
+                        $like: "%" + req.params.keyword + "%"
+                      },
+                      
+                }
+            }
+        }).then((results)=>{
+            res.json(results)
+                
+            }).catch((err)=>{
+                next(err)
+            })
+        })
+        
+
+    
 }
 module.exports=router;
