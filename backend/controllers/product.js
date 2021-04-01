@@ -66,5 +66,17 @@ function router(app){
             next(err)
         })
     })
+
+    app.delete("/api/product-destroy/{id}",(req,res,next)=>{
+        db.Products.destroy({
+            where:{
+                id:req.param.id
+            }
+        }).then((data)=>{
+            res.json(data)
+        }).catch((err)=>{
+            next(err)
+        })
+    })
 }
 module.exports=router;
