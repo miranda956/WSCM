@@ -3,6 +3,7 @@ const express=require("express");
 
 
 const db=require("../models");
+const supplier = require("../models/supplier");
 function router(app){
 
     app.get("/api/supplier-list", (req, res,next) => {
@@ -74,5 +75,27 @@ function router(app){
     })
 
     // supplier products 
+
+    app.get("/api/v1/supplier/{id}/products", (req, res, next) => {
+            db.Supplying.findAll({
+                include:[{
+                    // @ts-ignore
+                    model:Products
+                }],
+                // @ts-ignore
+                include:[{
+                    // @ts-ignore
+                    model:Supplier,
+                    where:{
+                        id:req.user.id
+                    }
+                }]
+            }).then((info)=>{
+                res.status(201).json(info);
+            }).catch((err)=>{
+                next(err)
+            })
+        })
+    
 }
 module.exports=router;

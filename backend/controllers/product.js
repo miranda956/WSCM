@@ -7,6 +7,7 @@ function router(app){
 
     app.get("/api/v1/products-list", (req, res,next) => {
         db.Products.findAll({
+            include:[db.Category]
 
         }).then((data)=>{
            res.json(data)
