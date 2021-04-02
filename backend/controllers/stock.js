@@ -22,6 +22,13 @@ app.get("api/v1/stock-level", (req, res,next) => {
   })
 });
 
+app.get("api/v1/item-level", (req, res) => {
+  db.Category.findAll({
+    
+  })
+  
+});
+
 }
 module.exports=router;
 
