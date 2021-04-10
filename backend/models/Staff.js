@@ -23,21 +23,22 @@ module.exports=(sequelize,DataTypes)=>{
             required:true,
             validate:{
                 len:[10]
+            }
+        },
+        position:{
+                type:DataTypes.STRING,
+                allowNull:false,
+                required:true
+
             },
             address:{
                 type:DataTypes.STRING,
                 allowNull:false,
                 required:true
             },
-            position:{
-                type:DataTypes.STRING,
-                allowNull:false,
-                required:true
+        
 
-            },
-
-
-        },
+        
     
         pwd:{
             type:DataTypes.STRING,
