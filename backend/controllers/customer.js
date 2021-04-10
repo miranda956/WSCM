@@ -46,7 +46,8 @@ function router(app){
     })
 
     app.get("/api/v1/customers-list", (req, res,next) => {
-        db.Customers.findAll({
+        db.Customer.findAll({
+            attributes:["f_name","l_name","email","contact","address"]
         }).then((data)=>{
             res.json(data)
 
@@ -89,7 +90,7 @@ app.get("/api/v1/customer-order/{id}",(req,res,next)=>{
 
     ]).catch((err)=>{
         next(err)
-    })
+    })  
 })
 
 }
