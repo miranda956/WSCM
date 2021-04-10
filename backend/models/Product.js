@@ -38,7 +38,7 @@ module.exports=(sequelize,DataTypes)=>{
             allowNull:false,
             required:true
         },
-        availabilty:{
+        available:{
             type:DataTypes.BOOLEAN,
             allowNull:false,
             required:true,

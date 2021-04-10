@@ -2,6 +2,12 @@
 
 module.exports=(sequelize,DataTypes)=>{
     const Stock=sequelize.define("Stock",{
+
+        name:{
+            type:DataTypes.INTEGER,
+            allowNull:false,
+            required:true
+        },
         quantity:{
             type:DataTypes.INTEGER,
             allowNull:false,

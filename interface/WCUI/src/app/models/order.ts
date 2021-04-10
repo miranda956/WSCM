@@ -1,14 +1,11 @@
 export interface Order {
-  id: number;
-  type: string;
-  status: string;
-  order_total_price: number;
-  item_Discount: number;
-  tax: number;
-  total: number;
-  grandTotal: number;
-  shipping: number;
+  id?: number;
+  ItemPrice: number;
+  ItemDiscount: number;
   quantity: number;
+  OrderTotal: number;
+  status: string;
+
 
 
 }
