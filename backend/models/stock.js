@@ -4,7 +4,7 @@ module.exports=(sequelize,DataTypes)=>{
     const Stock=sequelize.define("Stock",{
 
         name:{
-            type:DataTypes.INTEGER,
+            type:DataTypes.STRING,
             allowNull:false,
             required:true
         },

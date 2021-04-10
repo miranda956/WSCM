@@ -77,7 +77,7 @@ require("./controllers/supplier")(app)
 require("./controllers/customer")(app)
 
 db.sequelize.sync({force:false}).then(()=>{
-   const port = process.env.PORT || 4500;
+   const port = process.env.PORT || 5000;
    // @ts-ignore
    app.listen(port,()=> 
     console.log(`Server running on port ${port} 🔥`)); 
